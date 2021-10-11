@@ -291,3 +291,44 @@ htmlspecialchars.specialchars = [
   [ '"', '&quot;' ],
   [ "'", '&apos;' ]
 ];
+
+// mapping of genre IDs (categoryTypes) to css style names
+const categorystyles = {
+    '16': 'moviedrama',
+    '18': 'movieadventure',
+    '20': 'moviecomedy',
+    '32': 'news',
+    '48': 'gameshow',
+    '49': 'quizshow',
+    '64': 'sports',
+    '128': 'social',
+    '165': 'cooking'
+}
+
+// get colours from the categorycolours var by passing in genre code
+function get_epg_colours(genre) {
+        gec = {'back': 'onNow', 'text': '#000000'};
+//      gec = {'back': '#000000', 'text': '#FFFFFF'};
+
+        var cc = categorycolours.find(e => e.genre == genre);
+        if (cc == undefined) {
+                return gec;
+        } else {
+                gec.back = cc.back;
+                gec.text = cc.text;
+                return gec;
+        }
+}
+
+// a collection of genre IDs and their associated colours
+const categorycolours = [
+  {'genre': '16', 'back': '#BF40BF', 'text': '#FFFFFF'}, // movie / drama
+  {'genre': '18', 'back': '#BF40BF', 'text': '#FFFFFF'}, // adventure / western / war
+  {'genre': '20', 'back': '#CF50CF', 'text': '#FFFFFF'}, // comedy
+  {'genre': '32', 'back': '#021691', 'text': '#FFFFFF'}, // news / current affairs
+  {'genre': '48', 'back': '#FFD580', 'text': '#000000'}, // show / game show
+  {'genre': '49', 'back': '#FFD580', 'text': '#000000'}, // show / quiz / contest
+  {'genre': '64', 'back': '#89CFF0', 'text': '#000000'}, // sports
+  {'genre': '128', 'back': '#021691', 'text': '#FFFFFF'},// social / political issues / economics
+  {'genre': '165', 'back': '#C04000', 'text': '#FFFFFF'}  // cooking
+];

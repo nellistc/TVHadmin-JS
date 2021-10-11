@@ -117,11 +117,13 @@
 	      spc = ((p.start - tstart) * wd) / textent;
 	      s += `<div class='spacer' style='width: ${spc}%;'> <img src='images/spacer.gif' width=1 height=1 alt=''></div>`;
 	    }
-	    var colour = 'onNow';
+	    // var colour = 'onNow';
+            var colour = categorystyles[p.genre] || 'onNow';
 	    tnext = Math.min(tnext, p.stop);
 	    p.onNow = 1;
 	  }
-	  else var colour = 'onSoon';
+	  //else var colour = 'onSoon';
+          else var colour = categorystyles[p.genre] || 'onSoon';
 	  if (p.dvrState == 'scheduled' || p.dvrState == 'recording') {
 	    colour = 'record';
 	  }
