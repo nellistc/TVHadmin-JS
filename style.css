@@ -224,13 +224,18 @@ a:hover {
 }
 
 #timeline .channel_name {
+        height: 28px;
+        line-height: 28px;
 	display: block;
 }
 #timeline .col_schedule {
+        height: 28px;
+        line-height: 28px;
 	width: 100%;
 	white-space: nowrap;
 }
 #timeline .spacer {
+        height: 28px;
 	float: left;
 	background-color: #e0e0e0;
 	white-space: nowrap;
@@ -253,6 +258,42 @@ a:hover {
 }
 #timeline .record {
 	background-color: #e8a8a8;
+}
+#timeline .news {
+	background-color: #021691;
+	color: #FFFFFF;
+}
+#timeline .moviedrama {
+	background-color:#BF40BF;
+	color: #FFFFFF;
+}
+#timeline .movieadventure {
+	background-color:#BF40BF;
+	color: #FFFFFF;
+}
+#timeline .moviecomedy {
+	background-color:#CF50CF;
+	color: #FFFFFF;
+}
+#timeline .gameshow {
+	background-color:#ffd580;
+	color: #000000;
+}
+#timeline .quizshow {
+	background-color:#ffd580;
+	color: #000000;
+}
+#timeline .sports {
+	background-color:#89CFF0;
+	color: #000000;
+}
+#timeline .social {
+	background-color:#021691;
+	color: #FFFFFF;
+}
+#timeline .cooking {
+	background-color:#C04000;
+	color: #FFFFFF;
 }
 #timeline .row_0 {
 }
