@@ -82,24 +82,25 @@
       row = table.insertRow(-1);
       row.className = 'row_alt';
       let start = strftime("%H:%M", e.start);
+      let stop = strftime("%H:%M", e.stop);
       let desc = '';
       if (e.summary) desc = e.summary;
       else if (e.description) desc = e.description;
-      let s = `<td class='col_duration'><span class='time_duration'><span class='time_start'>${start}</span></span></td>` +
+      let s = `<td class='col_duration'><span class='time_duration'>${start} - ${stop}</span></td>` +
 	    `<td class='col_channel'><div class='channel_name'>${e.channelName}</div></td>` +
 	    `<td class='col_title'>` +
 	    `<div class='epg_title'>${e.title}</div>` +
 	    `<div class='epg_subtitle'>${desc}</div></td>`;
-      if (slinks[e.serieslinkUri]) {
-	s += "<td></td><td><img src='images/rec.png' title='Series recording scheduled'></td>";
-      }
-      else {
-	if (e.dvrState == 'scheduled' || e.dvrState == 'recording') {
-	  s += "<td><img src='images/rec.png' title='Recording scheduled'></td>";
+      if (e.dvrState == 'scheduled' || e.dvrState == 'recording') {
+	if (slinks[e.serieslinkUri]) {
+	  s += "<td></td><td><img src='images/rec.png' title='Series recording scheduled'></td>";
 	}
 	else {
-	  s += `<td><a href='search.html' onclick='create_by_event(event, "${e.eventId}", this)'><img src='images/rec_button1.png' title='record'></a></td>`;
+	  s += "<td><img src='images/rec.png' title='Recording scheduled'></td>";
 	}
+      }
+      else {
+	s += `<td><a href='search.html' onclick='create_by_event(event, "${e.eventId}", this)'><img src='images/rec_button1.png' title='record'></a></td>`;
 	if (e.serieslinkUri) {
 	  s += `<td><a href='search.html' onclick='create_by_series(event, "${e.eventId}", this)'><img src='images/rec_buttonS.png' title='record series'></a></td>`;
 	}
